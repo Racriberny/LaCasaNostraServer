@@ -88,7 +88,7 @@ public class DbConnection {
             in = new FileInputStream(filename);
             prop.load(in);
             DB_SERVER = prop.getProperty("DB_SERVER", "locahost:3306");
-            DB_NAME = prop.getProperty("DB_NAME", "german");
+            DB_NAME = prop.getProperty("DB_NAME", "LaCasaNostra");
             DB_USERNAME = prop.getProperty("DB_USERNAME", "root");
             DB_PASSWORD = prop.getProperty("DB_PASSWORD", "");
         } catch (FileNotFoundException e) {

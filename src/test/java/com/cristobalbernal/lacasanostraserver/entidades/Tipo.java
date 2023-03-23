@@ -11,10 +11,10 @@ public class Tipo {
     @Column(name = "id", nullable = false)
     private int id;
     @Basic
-    @Column(name = "Nombre", nullable = true, length = 45)
+    @Column(name = "nombre", nullable = true, length = 45)
     private String nombre;
     @Basic
-    @Column(name = "Descripcion", nullable = true, length = 300)
+    @Column(name = "descripcion", nullable = true, length = 300)
     private String descripcion;
 
     public int getId() {

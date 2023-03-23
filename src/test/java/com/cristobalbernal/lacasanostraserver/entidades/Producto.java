@@ -11,16 +11,16 @@ public class Producto {
     @Column(name = "id", nullable = false)
     private int id;
     @Basic
-    @Column(name = "Nombre", nullable = true, length = 100)
+    @Column(name = "nombre", nullable = true, length = 100)
     private String nombre;
     @Basic
-    @Column(name = "Precio", nullable = true, length = 45)
+    @Column(name = "precio", nullable = true, length = 45)
     private String precio;
     @Basic
-    @Column(name = "Ingredientees", nullable = true, length = 300)
+    @Column(name = "ingredientees", nullable = true, length = 300)
     private String ingredientees;
     @Basic
-    @Column(name = "Calorias", nullable = true, length = 45)
+    @Column(name = "calorias", nullable = true, length = 45)
     private String calorias;
     @Basic
     @Column(name = "Tipo_idTipo", nullable = false)
@@ -28,6 +28,12 @@ public class Producto {
     @Basic
     @Column(name = "img_id", nullable = false)
     private int imgId;
+    @Basic
+    @Column(name = "tipo_idtipo", nullable = false)
+    private int tipoIdtipo;
+    @Basic
+    @Column(name = "urlImagen", nullable = false, length = 300)
+    private String urlImagen;
 
     public int getId() {
         return id;
@@ -96,5 +102,21 @@ public class Producto {
     @Override
     public int hashCode() {
         return Objects.hash(id, nombre, precio, ingredientees, calorias, tipoIdTipo, imgId);
+    }
+
+    public int getTipoIdtipo() {
+        return tipoIdtipo;
+    }
+
+    public void setTipoIdtipo(int tipoIdtipo) {
+        this.tipoIdtipo = tipoIdtipo;
+    }
+
+    public String getUrlImagen() {
+        return urlImagen;
+    }
+
+    public void setUrlImagen(String urlImagen) {
+        this.urlImagen = urlImagen;
     }
 }

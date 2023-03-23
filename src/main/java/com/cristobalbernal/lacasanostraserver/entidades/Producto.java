@@ -11,23 +11,23 @@ public class Producto {
     @Column(name = "id", nullable = false)
     private int id;
     @Basic
-    @Column(name = "Nombre", nullable = true, length = 100)
+    @Column(name = "nombre", nullable = true, length = 100)
     private String nombre;
     @Basic
-    @Column(name = "Precio", nullable = true, length = 45)
+    @Column(name = "precio", nullable = true, length = 45)
     private String precio;
     @Basic
-    @Column(name = "Ingredientees", nullable = true, length = 300)
+    @Column(name = "ingredientees", nullable = true, length = 300)
     private String ingredientees;
     @Basic
-    @Column(name = "Calorias", nullable = true, length = 45)
+    @Column(name = "calorias", nullable = true, length = 45)
     private String calorias;
     @Basic
-    @Column(name = "Tipo_idTipo", nullable = false)
-    private int tipoIdTipo;
+    @Column(name = "tipo_idtipo", nullable = false)
+    private int tipoIdtipo;
     @Basic
-    @Column(name = "img_id", nullable = false)
-    private int imgId;
+    @Column(name = "url_imagen", nullable = false, length = 300)
+    private String urlImagen;
 
     public int getId() {
         return id;
@@ -69,20 +69,20 @@ public class Producto {
         this.calorias = calorias;
     }
 
-    public int getTipoIdTipo() {
-        return tipoIdTipo;
+    public int getTipoIdtipo() {
+        return tipoIdtipo;
     }
 
-    public void setTipoIdTipo(int tipoIdTipo) {
-        this.tipoIdTipo = tipoIdTipo;
+    public void setTipoIdtipo(int tipoIdtipo) {
+        this.tipoIdtipo = tipoIdtipo;
     }
 
-    public int getImgId() {
-        return imgId;
+    public String getUrlImagen() {
+        return urlImagen;
     }
 
-    public void setImgId(int imgId) {
-        this.imgId = imgId;
+    public void setUrlImagen(String urlImagen) {
+        this.urlImagen = urlImagen;
     }
 
     @Override
@@ -90,11 +90,11 @@ public class Producto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Producto producto = (Producto) o;
-        return id == producto.id && tipoIdTipo == producto.tipoIdTipo && imgId == producto.imgId && Objects.equals(nombre, producto.nombre) && Objects.equals(precio, producto.precio) && Objects.equals(ingredientees, producto.ingredientees) && Objects.equals(calorias, producto.calorias);
+        return id == producto.id && tipoIdtipo == producto.tipoIdtipo && Objects.equals(nombre, producto.nombre) && Objects.equals(precio, producto.precio) && Objects.equals(ingredientees, producto.ingredientees) && Objects.equals(calorias, producto.calorias) && Objects.equals(urlImagen, producto.urlImagen);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, precio, ingredientees, calorias, tipoIdTipo, imgId);
+        return Objects.hash(id, nombre, precio, ingredientees, calorias, tipoIdtipo, urlImagen);
     }
 }

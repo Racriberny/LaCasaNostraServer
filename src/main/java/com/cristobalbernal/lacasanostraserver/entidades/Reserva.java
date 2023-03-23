@@ -12,13 +12,13 @@ public class Reserva {
     @Column(name = "id", nullable = false)
     private int id;
     @Basic
-    @Column(name = "Cantidad", nullable = true, length = 45)
+    @Column(name = "cantidad", nullable = true, length = 45)
     private String cantidad;
     @Basic
-    @Column(name = "Fecha", nullable = true)
+    @Column(name = "fecha", nullable = true)
     private Date fecha;
     @Basic
-    @Column(name = "Usuario_id", nullable = false)
+    @Column(name = "usuario_id", nullable = false)
     private int usuarioId;
 
     public int getId() {

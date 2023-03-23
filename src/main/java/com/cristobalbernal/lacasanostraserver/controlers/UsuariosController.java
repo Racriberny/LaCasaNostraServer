@@ -31,11 +31,11 @@ public class UsuariosController {
 
         String contrasena = "";
         try{
-            contrasena = HashGenerator.getSHAString(usuario.getContrasenya());
+            contrasena = HashGenerator.getSHAString(usuario.getContrasena());
         }catch (NoSuchFieldError | NoSuchAlgorithmException e){
             e.printStackTrace();
         }
-        usuario.setContrasenya(contrasena);
+        usuario.setContrasena(contrasena);
         usuario.setAdmin((byte) 0);
         try {
             Log.i("Nuevo Usuario: ", usuario.toString());
@@ -63,7 +63,7 @@ public class UsuariosController {
 
         try {
             for (Usuario usuario: getUsers()) {
-                if (usuario.getNombre().equals(user.getNombre()) && (user.getContrasenya()).equals(usuario.getContrasenya())) {
+                if (usuario.getNombre().equals(user.getNombre()) && (user.getContrasena()).equals(usuario.getContrasena())) {
                     return true;
                 }
             }

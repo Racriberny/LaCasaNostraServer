@@ -15,14 +15,14 @@ public class ProductoController {
     private IProductorDao iProductorDao;
 
     @GetMapping("/all")
-    public List<Producto> getAutores() {
+    public List<Producto> getProducto() {
         return iProductorDao.findAll();
     }
 
     @PostMapping("/add")
     public boolean addProducto(@RequestBody Producto producto) {
         try {
-            Log.i("Nuevo Autor: ", producto.toString());
+            Log.i("Nuevo producto: ", producto.toString());
             iProductorDao.save(producto);
             return true;
         } catch (Exception e) {
@@ -34,11 +34,11 @@ public class ProductoController {
     @PutMapping("/update")
     public boolean updateProducto(@RequestBody Producto producto) {
         try {
-            Log.i("Update Autor: ", producto.toString());
+            Log.i("Update producto: ", producto.toString());
             iProductorDao.save(producto);
             return true;
         } catch (Exception e){
-            Log.e("Update autor", e.getMessage());
+            Log.e("Update producto", e.getMessage());
             return false;
         }
     }
@@ -47,7 +47,7 @@ public class ProductoController {
     public boolean deleteProducto(@PathVariable("id") Integer id) {
         try {
             iProductorDao.deleteById(id);
-            System.out.println("Autor eliminado correctamente");
+            System.out.println("Producto eliminado correctamente");
             return true;
         } catch (Exception e){
             e.printStackTrace();

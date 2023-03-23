@@ -11,16 +11,16 @@ public class Usuario {
     @Column(name = "id", nullable = false)
     private int id;
     @Basic
-    @Column(name = "Nombre", nullable = true, length = 45)
+    @Column(name = "nombre", nullable = true, length = 45)
     private String nombre;
     @Basic
-    @Column(name = "Apellidos", nullable = true, length = 45)
+    @Column(name = "apellidos", nullable = true, length = 45)
     private String apellidos;
     @Basic
-    @Column(name = "Correo_Electronico", nullable = true, length = 100)
+    @Column(name = "correo_electronico", nullable = true, length = 100)
     private String correoElectronico;
     @Basic
-    @Column(name = "Contrasena", nullable = true, length = 120)
+    @Column(name = "contrasena", nullable = true, length = 120)
     private String contrasena;
     @Basic
     @Column(name = "admin", nullable = true)
@@ -57,15 +57,17 @@ public class Usuario {
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
     }
-    public Byte getAdmin() {
-        return admin;
+
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setContrasenya(String contrasenya) {
-        this.contrasena = contrasenya;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
-    public String getContrasenya() {
-        return contrasena;
+
+    public Byte getAdmin() {
+        return admin;
     }
 
     public void setAdmin(Byte admin) {
