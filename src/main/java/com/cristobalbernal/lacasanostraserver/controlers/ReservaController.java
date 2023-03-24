@@ -1,6 +1,5 @@
 package com.cristobalbernal.lacasanostraserver.controlers;
 
-import com.cristobalbernal.lacasanostraserver.entidades.Producto;
 import com.cristobalbernal.lacasanostraserver.entidades.Reserva;
 import com.cristobalbernal.lacasanostraserver.repo.IReservaDao;
 import com.cristobalbernal.lacasanostraserver.util.Log;

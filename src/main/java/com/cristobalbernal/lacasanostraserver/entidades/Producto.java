@@ -26,7 +26,7 @@ public class Producto {
     @Column(name = "tipo_idtipo", nullable = false)
     private int tipoIdtipo;
     @Basic
-    @Column(name = "url_imagen", nullable = false, length = 300)
+    @Column(name = "url_imagen", nullable = false, length = -1)
     private String urlImagen;
 
     public int getId() {

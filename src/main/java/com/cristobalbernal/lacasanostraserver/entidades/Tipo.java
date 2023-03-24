@@ -14,8 +14,11 @@ public class Tipo {
     @Column(name = "nombre", nullable = true, length = 45)
     private String nombre;
     @Basic
-    @Column(name = "descripcion", nullable = true, length = 300)
+    @Column(name = "descripcion", nullable = true, length = 500)
     private String descripcion;
+    @Basic
+    @Column(name = "imagen", nullable = false, length = 500)
+    private String imagen;
 
     public int getId() {
         return id;
@@ -41,16 +44,24 @@ public class Tipo {
         this.descripcion = descripcion;
     }
 
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Tipo tipo = (Tipo) o;
-        return id == tipo.id && Objects.equals(nombre, tipo.nombre) && Objects.equals(descripcion, tipo.descripcion);
+        return id == tipo.id && Objects.equals(nombre, tipo.nombre) && Objects.equals(descripcion, tipo.descripcion) && Objects.equals(imagen, tipo.imagen);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, descripcion);
+        return Objects.hash(id, nombre, descripcion, imagen);
     }
 }
