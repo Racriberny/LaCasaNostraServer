@@ -3,6 +3,7 @@ package com.cristobalbernal.lacasanostraserver.entidades;
 import jakarta.persistence.*;
 
 import java.sql.Date;
+import java.sql.Time;
 import java.util.Objects;
 
 @Entity
@@ -20,6 +21,9 @@ public class Reserva {
     @Basic
     @Column(name = "usuario_id", nullable = false)
     private int usuarioId;
+    @Basic
+    @Column(name = "hora", nullable = false)
+    private Time hora;
 
     public int getId() {
         return id;
@@ -53,16 +57,24 @@ public class Reserva {
         this.usuarioId = usuarioId;
     }
 
+    public Time getHora() {
+        return hora;
+    }
+
+    public void setHora(Time hora) {
+        this.hora = hora;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Reserva reserva = (Reserva) o;
-        return id == reserva.id && usuarioId == reserva.usuarioId && Objects.equals(cantidad, reserva.cantidad) && Objects.equals(fecha, reserva.fecha);
+        return id == reserva.id && usuarioId == reserva.usuarioId && Objects.equals(cantidad, reserva.cantidad) && Objects.equals(fecha, reserva.fecha) && Objects.equals(hora, reserva.hora);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, cantidad, fecha, usuarioId);
+        return Objects.hash(id, cantidad, fecha, usuarioId, hora);
     }
 }
