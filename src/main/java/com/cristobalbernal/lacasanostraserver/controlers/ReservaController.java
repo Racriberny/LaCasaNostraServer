@@ -22,6 +22,7 @@ public class ReservaController {
     @PostMapping("/add")
     public boolean addReserva(@RequestBody Reserva reserva) {
         try {
+            System.out.println(reserva.toString());
             Log.i("Nuevo reserva: ", reserva.toString());
             iReservaDao.save(reserva);
             return true;

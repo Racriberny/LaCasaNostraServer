@@ -4,9 +4,11 @@ import com.cristobalbernal.lacasanostraserver.entidades.Usuario;
 import com.cristobalbernal.lacasanostraserver.repo.IUsuarioDao;
 import com.cristobalbernal.lacasanostraserver.util.Log;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuario")
@@ -57,5 +59,20 @@ public class UsuariosController {
             }
         }
         return null;
+    }
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Usuario> updateUser(@PathVariable Long id, @RequestBody Usuario user) {
+        Optional<Usuario> optionalUser = iUsuarioDao.findById(Math.toIntExact(id));
+        if (optionalUser.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        Usuario existingUser = optionalUser.get();
+        existingUser.setNombre(user.getNombre());
+        existingUser.setApellidos(user.getApellidos());
+        existingUser.setCorreoElectronico(user.getCorreoElectronico());
+        existingUser.setContrasena(user.getContrasena());
+        // Actualiza los demás campos según sea necesario
+        Usuario updatedUser = iUsuarioDao.save(existingUser);
+        return ResponseEntity.ok(updatedUser);
     }
 }
