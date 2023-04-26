@@ -1,12 +1,15 @@
 package com.cristobalbernal.lacasanostraserver.controlers;
 
 import com.cristobalbernal.lacasanostraserver.entidades.Producto;
+import com.cristobalbernal.lacasanostraserver.entidades.Tipo;
 import com.cristobalbernal.lacasanostraserver.repo.IProductorDao;
 import com.cristobalbernal.lacasanostraserver.util.Log;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/producto")
@@ -53,6 +56,23 @@ public class ProductoController {
             e.printStackTrace();
             return false;
         }
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Producto> updateTipo(@PathVariable Long id, @RequestBody Producto producto) {
+        Optional<Producto> optionalProducto = iProductorDao.findById(Math.toIntExact(id));
+        if (optionalProducto.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        Producto existingProducto = optionalProducto.get();
+        existingProducto.setNombre(producto.getNombre());
+        existingProducto.setIngredientees(producto.getIngredientees());
+        existingProducto.setPrecio(producto.getPrecio());
+        existingProducto.setTipoIdtipo(producto.getTipoIdtipo());
+        existingProducto.setUrlImagen(producto.getUrlImagen());
+        // Actualiza los demás campos según sea necesario
+        Producto updatedProducto = iProductorDao.save(existingProducto);
+        return ResponseEntity.ok(updatedProducto);
     }
 
 }

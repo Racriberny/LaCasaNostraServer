@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class LaCasaNostraServerApplication {
-    public static boolean DEBUG = false;
+    public static boolean DEBUG = true;
     public static String CONFIG_FILE =  null;
 
     public static void main(String[] args) {
