@@ -25,6 +25,9 @@ public class Usuario {
     @Basic
     @Column(name = "admin", nullable = true)
     private Byte admin;
+    @Basic
+    @Column(name = "imagen", nullable = true, length = -1)
+    private String imagen;
 
     public int getId() {
         return id;
@@ -74,16 +77,24 @@ public class Usuario {
         this.admin = admin;
     }
 
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Usuario usuario = (Usuario) o;
-        return id == usuario.id && Objects.equals(nombre, usuario.nombre) && Objects.equals(apellidos, usuario.apellidos) && Objects.equals(correoElectronico, usuario.correoElectronico) && Objects.equals(contrasena, usuario.contrasena) && Objects.equals(admin, usuario.admin);
+        return id == usuario.id && Objects.equals(nombre, usuario.nombre) && Objects.equals(apellidos, usuario.apellidos) && Objects.equals(correoElectronico, usuario.correoElectronico) && Objects.equals(contrasena, usuario.contrasena) && Objects.equals(admin, usuario.admin) && Objects.equals(imagen, usuario.imagen);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre, apellidos, correoElectronico, contrasena, admin);
+        return Objects.hash(id, nombre, apellidos, correoElectronico, contrasena, admin, imagen);
     }
 }
