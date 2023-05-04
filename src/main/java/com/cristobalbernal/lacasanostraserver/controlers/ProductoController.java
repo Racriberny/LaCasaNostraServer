@@ -34,18 +34,6 @@ public class ProductoController {
         }
     }
 
-    @PutMapping("/update")
-    public boolean updateProducto(@RequestBody Producto producto) {
-        try {
-            Log.i("Update producto: ", producto.toString());
-            iProductorDao.save(producto);
-            return true;
-        } catch (Exception e){
-            Log.e("Update producto", e.getMessage());
-            return false;
-        }
-    }
-
     @DeleteMapping(value = "/{id}")
     public boolean deleteProducto(@PathVariable("id") Integer id) {
         try {
