@@ -17,7 +17,7 @@ public class Tipo {
     @Column(name = "descripcion", nullable = true, length = 500)
     private String descripcion;
     @Basic
-    @Column(name = "imagen", nullable = false, length = 500)
+    @Column(name = "imagen", nullable = false, length = -1)
     private String imagen;
 
     public int getId() {
